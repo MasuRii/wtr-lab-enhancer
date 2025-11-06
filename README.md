@@ -1,5 +1,7 @@
 # WTR-Lab Reader & UI Enhancer
 
+![Configuration Panel](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTkzODAzLCJwdXIiOiJibG9iX2lkIn19--785372a417f9bf4194e6b4f5972c9db8aa14b028/Screenshot%202025-10-29%20at%2014-11-42%20This%20Game%20Is%20Too%20Realistic%20Chapter%20862%20-%20WTR-LAB.png?locale=en) ![Configuration Panel](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTkzODAyLCJwdXIiOiJibG9iX2lkIn19--18c2b2a6815239388d78e7a5b130a57c1112b1dc/Screenshot%202025-10-29%20at%2014-11-48%20This%20Game%20Is%20Too%20Realistic%20Chapter%20862%20-%20WTR-LAB.png?locale=en) ![Reader View](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTkzNDEwLCJwdXIiOiJibG9iX2lkIn19--fe51807b2fee0be4311f1ba7c686c4ca5903f155/Screenshot%202025-10-26%20at%2012-18-13%20This%20Game%20Is%20Too%20Realistic%20Chapter%20790%20-%20WTR-LAB.png?locale=en)
+
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/MasuRii/wtr-lab-enhancer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#building-from-source)
@@ -10,13 +12,15 @@ A powerful userscript that enhances your WTR-Lab reading experience with customi
 ## 🚀 Quick Installation
 
 ### Option 1: Install from GreasyFork (Recommended)
+
 **For end users, we recommend installing directly from GreasyFork for automatic updates:**
 
 👉 **[Install from GreasyFork](https://greasyfork.org/en/scripts/552944-wtr-lab-reader-ui-enhancer)** - Ready!
 
-*GreasyFork provides automatic updates and easy management through userscript managers like Tampermonkey.*
+_GreasyFork provides automatic updates and easy management through userscript managers like Tampermonkey._
 
 ### Option 2: Build from Source
+
 **For developers who want to modify the script or contribute:**
 
 1. **Prerequisites:** Node.js 16+ and npm
@@ -42,32 +46,38 @@ A powerful userscript that enhances your WTR-Lab reading experience with customi
 ## ✨ Features
 
 ### 📐 **Layout & Sizing Control**
+
 - **Reader Width:** Adjust the main content reading area width (300-1200px)
 - **Navigation Panel:** Customize the bottom navigation panel width
 - **Background Constraint:** Option to constrain navigation background to match content width
 
 ### 🎨 **Font Customization**
+
 - **Custom Fonts:** Choose from Google Fonts collection
 - **Font Categories:** Browse recommended serif and sans-serif fonts
 - **Dynamic Loading:** Fonts are loaded on-demand for optimal performance
 - **Font Toggle:** Enable/disable custom fonts as needed
 
 ### 👁️ **Element Visibility**
+
 - **Toolbar Controls:** Hide/show individual toolbar buttons (Book, Text, TTS, Settings, List)
 - **Add Term Button:** Option to hide the floating "Add Term" button for distraction-free reading
 
 ### 🔧 **Advanced Features**
+
 - **Debug Mode:** Detailed console logging for troubleshooting
-- **Settings Persistence:** All preferences saved locally via GM_* APIs
+- **Settings Persistence:** All preferences saved locally via GM\_\* APIs
 - **Responsive Design:** Works across different screen sizes
 - **Touch Optimization:** Enhanced touch controls for mobile devices
 
 ## 🎯 **Target Websites**
+
 - `https://wtr-lab.com/en/novel/*/*/chapter-*`
 
 ## 🛠️ **Development**
 
 ### **Building from Source**
+
 ```bash
 # Development build with source maps
 npm run dev
@@ -77,6 +87,7 @@ npm run build
 ```
 
 ### **Project Structure**
+
 ```
 wtr-lab-enhancer/
 ├── src/
@@ -97,12 +108,14 @@ wtr-lab-enhancer/
 ```
 
 ### **Build System**
+
 - **Webpack 5** for modern bundling
 - **webpack-userscript** plugin for userscript header generation
 - **CSS Modules** with style-loader and css-loader
 - **Production optimization** with minification and source maps
 
 ### **Contributing**
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
@@ -115,11 +128,13 @@ wtr-lab-enhancer/
 ## 🔄 **Versioning & Updates**
 
 ### **Current Version:** 1.0.0
+
 - **Semantic Versioning:** Following semver (MAJOR.MINOR.PATCH)
 - **GreasyFork Compatible:** Optimized for GreasyFork submission and approval
 - **Auto-updates:** Configured for seamless updates via @updateURL
 
 ### **Update Sources**
+
 - **Primary:** GreasyFork (automatic updates)
 - **Backup:** GitHub releases (manual installation)
 - **Development:** Direct from source (built locally)
@@ -133,11 +148,12 @@ This script is fully compliant with GreasyFork policies:
 - ✅ **MIT License:** Open source license properly declared
 - ✅ **Minification allowed:** Production builds are optimized
 - ✅ **No obfuscation:** Clean, readable source code available
-- ✅ **Documented permissions:** GM_* functions properly justified
+- ✅ **Documented permissions:** GM\_\* functions properly justified
 
 ## 🔐 **Permissions & APIs**
 
 The script uses the following Tampermonkey APIs:
+
 - `GM_addStyle` - Inject custom CSS styles
 - `GM_getValue` / `GM_setValue` - Persist user settings
 - `GM_registerMenuCommand` - Add settings menu entry
@@ -165,4 +181,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ for better reading experiences on WTR-Lab**
 
-*For the latest updates and detailed documentation, visit our [GitHub repository](https://github.com/MasuRii/wtr-lab-enhancer).*
+_For the latest updates and detailed documentation, visit our [GitHub repository](https://github.com/MasuRii/wtr-lab-enhancer)._
