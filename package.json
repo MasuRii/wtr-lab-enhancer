@@ -1,0 +1,20 @@
+{
+  "name": "wtr-lab-enhancer",
+  "version": "3.5.0",
+  "description": "Adds a responsive configuration panel to adjust reader width, navigation width, and optionally override font style on wtr-lab.com.",
+  "author": "MasuRii",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack serve --mode=development"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4",
+    "webpack-userscript": "^3.2.1"
+  }
+}

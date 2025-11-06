@@ -1,0 +1,458 @@
+/* Modern CSS Design System with Fallbacks */
+:root {
+    /* Container Queries Support Detection */
+    --supports-container-queries: false;
+    
+    /* Design Tokens - Colors */
+    --panel-bg-primary: var(--bs-component-bg, #ffffff);
+    --panel-bg-secondary: var(--bs-tertiary-bg, #f8f9fa);
+    --panel-bg-elevated: var(--bs-body-bg, #ffffff);
+    --panel-text-primary: var(--bs-body-color, #212529);
+    --panel-text-secondary: var(--bs-secondary-color, #6c757d);
+    --panel-border: var(--bs-border-color, #dee2e6);
+    --panel-accent: var(--bs-primary, #0d6efd);
+    --panel-accent-hover: #0b5ed7;
+    --panel-success: #198754;
+    --panel-danger: #dc3545;
+    --panel-warning: #fd7e14;
+    
+    /* Design Tokens - Spacing */
+    --panel-spacing-xs: 0.25rem;
+    --panel-spacing-sm: 0.5rem;
+    --panel-spacing-md: 1rem;
+    --panel-spacing-lg: 1.5rem;
+    --panel-spacing-xl: 2rem;
+    
+    /* Design Tokens - Typography */
+    --panel-font-family: var(--bs-font-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+    --panel-font-size-xs: 0.75rem;
+    --panel-font-size-sm: 0.875rem;
+    --panel-font-size-md: 1rem;
+    --panel-font-size-lg: 1.125rem;
+    --panel-font-size-xl: 1.25rem;
+    --panel-font-weight-normal: 400;
+    --panel-font-weight-medium: 500;
+    --panel-font-weight-bold: 600;
+    --panel-line-height-tight: 1.2;
+    --panel-line-height-normal: 1.5;
+    --panel-line-height-relaxed: 1.75;
+    
+    /* Design Tokens - Border Radius */
+    --panel-radius-sm: var(--bs-border-radius-sm, 0.25rem);
+    --panel-radius-md: var(--bs-border-radius, 0.375rem);
+    --panel-radius-lg: var(--bs-border-radius-lg, 0.5rem);
+    --panel-radius-xl: 0.75rem;
+    --panel-radius-full: 9999px;
+    
+    /* Design Tokens - Shadows */
+    --panel-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --panel-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --panel-shadow-lg: var(--bs-box-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    --panel-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    
+    /* Design Tokens - Transitions */
+    --panel-transition-fast: 0.15s ease;
+    --panel-transition-normal: 0.3s ease;
+    --panel-transition-slow: 0.5s ease;
+    --panel-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Design Tokens - Z-Index */
+    --panel-z-overlay: 9999;
+    --panel-z-panel: 10000;
+    --panel-z-tooltip: 10001;
+}
+
+/* Container Queries Support Detection */
+@supports (container-type: inline-size) {
+    :root {
+        --supports-container-queries: true;
+    }
+}
+
+/* Panel Container for Container Queries */
+#wtr-config-container {
+    container-name: wtr-panel;
+    container-type: inline-size;
+    container-index: 0;
+}
+
+/* Enhanced panel styling with design tokens */
+#wtr-config-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: var(--panel-z-overlay);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    contain: layout style paint;
+}
+
+#wtr-config-panel {
+    background: var(--panel-bg-primary);
+    color: var(--panel-text-primary);
+    padding: var(--panel-spacing-xl);
+    border-radius: var(--panel-radius-lg);
+    width: 90%;
+    max-width: 550px;
+    box-shadow: var(--panel-shadow-xl);
+    font-family: var(--panel-font-family);
+    display: flex;
+    flex-direction: column;
+    gap: var(--panel-spacing-lg);
+    max-height: 90vh;
+    border: 1px solid var(--panel-border);
+    
+    /* Performance optimizations */
+    contain: layout style paint;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* Enhanced Typography with Design Tokens */
+#wtr-config-panel h2 {
+    margin: 0;
+    text-align: center;
+    font-weight: var(--panel-font-weight-medium);
+    font-size: var(--panel-font-size-xl);
+    line-height: var(--panel-line-height-tight);
+    color: var(--panel-text-primary);
+    flex-shrink: 0;
+}
+
+/* Enhanced Sections with Containment */
+#wtr-config-panel #wtr-config-sections {
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--panel-spacing-lg);
+    padding-right: var(--panel-spacing-md);
+    margin-right: calc(-1 * var(--panel-spacing-md));
+    
+    /* Performance optimization */
+    contain: layout style;
+}
+
+#wtr-config-panel .wtr-config-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--panel-spacing-lg);
+    padding: var(--panel-spacing-lg);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--panel-radius-lg);
+    background: var(--panel-bg-secondary);
+    
+    /* Performance optimization */
+    contain: layout style paint;
+}
+
+#wtr-config-panel .wtr-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--panel-spacing-sm);
+}
+
+/* Modern Control Layout with Grid Fallback */
+#wtr-config-panel .wtr-config-controls {
+    display: flex;
+    gap: var(--panel-spacing-sm);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#wtr-config-panel .wtr-config-controls.font-controls {
+    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--panel-spacing-sm);
+}
+
+#wtr-config-panel .wtr-config-controls.checkbox-control {
+    justify-content: flex-start;
+    cursor: pointer;
+    padding: var(--panel-spacing-sm) 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--panel-spacing-sm);
+    cursor: pointer;
+}
+
+#wtr-config-panel .wtr-config-controls.checkbox-control label {
+    user-select: none;
+}
+
+#wtr-config-panel .wtr-config-controls.checkbox-control input {
+    margin-right: var(--panel-spacing-sm);
+}
+
+/* Enhanced Form Controls with Touch Optimization */
+#wtr-config-panel input[type="number"],
+#wtr-config-panel select {
+    flex-grow: 1;
+    min-width: 100px;
+    min-height: 44px; /* Touch target size */
+    text-align: center;
+    background: var(--panel-bg-secondary);
+    color: var(--panel-text-primary);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--panel-radius-md);
+    padding: var(--panel-spacing-sm) var(--panel-spacing-md);
+    font-family: var(--panel-font-family);
+    font-size: var(--panel-font-size-sm);
+    
+    /* Performance */
+    contain: layout style;
+}
+
+#wtr-config-panel select:disabled {
+    background: var(--panel-bg-secondary);
+    color: var(--panel-text-secondary);
+    cursor: not-allowed;
+}
+
+/* Modern Button Layout */
+#wtr-config-panel .wtr-button-group {
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--panel-spacing-sm);
+    justify-content: end;
+    flex-shrink: 0;
+}
+
+/* Enhanced Button Styling with Motion Controls */
+#wtr-config-panel .wtr-config-button {
+    min-height: 44px; /* iOS guideline */
+    min-width: 44px;
+    padding: var(--panel-spacing-sm) var(--panel-spacing-md);
+    border: none;
+    border-radius: var(--panel-radius-md);
+    cursor: pointer;
+    background-color: var(--panel-accent);
+    color: white;
+    font-weight: var(--panel-font-weight-bold);
+    font-size: var(--panel-font-size-sm);
+    flex-shrink: 0;
+    transition: background-color var(--panel-transition-fast),
+                transform var(--panel-transition-fast);
+    
+    /* Touch optimization */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    
+    /* Performance */
+    contain: layout style paint;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+#wtr-config-panel .wtr-config-button:hover,
+#wtr-config-panel .wtr-config-button:focus-visible {
+    background-color: var(--panel-accent-hover);
+    transform: translateY(-1px);
+}
+
+#wtr-config-panel .wtr-config-button:active {
+    transform: translateY(0);
+}
+
+#wtr-config-panel .wtr-config-button:disabled {
+    background-color: var(--panel-text-secondary);
+    cursor: not-allowed;
+    transform: none;
+}
+
+#wtr-config-panel .wtr-config-button.control {
+    width: 44px;
+    aspect-ratio: 1;
+}
+
+#wtr-config-panel .wtr-config-button.reset {
+    background-color: var(--panel-danger);
+}
+
+#wtr-config-panel #wtr-config-close-btn {
+    background-color: var(--panel-text-secondary);
+    align-self: center;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+/* Enhanced Typography */
+#wtr-config-panel .wtr-section-title {
+    font-weight: var(--panel-font-weight-medium);
+    text-align: center;
+    margin-bottom: var(--panel-spacing-sm);
+    display: block;
+    font-size: var(--panel-font-size-lg);
+    color: var(--panel-text-primary);
+}
+
+#wtr-config-panel .wtr-subsection-title {
+    font-weight: var(--panel-font-weight-medium);
+    text-align: left;
+    margin-top: var(--panel-spacing-lg);
+    display: block;
+    border-top: 1px solid var(--panel-border);
+    padding-top: var(--panel-spacing-lg);
+    color: var(--panel-text-primary);
+}
+
+/* Enhanced Button Hide Controls Layout */
+#wtr-config-panel .wtr-button-hide-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--panel-spacing-md);
+    justify-content: flex-start;
+}
+
+#wtr-config-panel .icon-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: var(--panel-spacing-sm);
+}
+
+#wtr-config-panel .icon-checkbox svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+}
+
+#wtr-config-panel .icon-checkbox svg:has(use[href*="text_fields"], use[href*="tts"], use[href*="list"]) {
+    fill: currentColor;
+    stroke: none;
+}
+
+/* Motion Preference Handling - WCAG 2.2/2.3 Compliance */
+@media (prefers-reduced-motion: reduce) {
+    #wtr-config-overlay,
+    #wtr-config-panel,
+    .wtr-config-button {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* Enable motion for users who haven't disabled it */
+@supports not (prefers-reduced-motion: reduce) {
+    #wtr-config-panel {
+        transition: transform var(--panel-transition-normal) var(--panel-timing-function),
+                   opacity var(--panel-transition-normal) ease;
+        transform: scale(0.95);
+    }
+    
+    #wtr-config-panel.visible {
+        transform: scale(1);
+    }
+}
+
+/* Container Query Responsive Design */
+@container wtr-panel (max-width: 480px) {
+    #wtr-config-panel {
+        width: 95%;
+        padding: var(--panel-spacing-lg);
+    }
+    
+    .wtr-config-controls {
+        flex-direction: column;
+        gap: var(--panel-spacing-xs);
+    }
+    
+    .wtr-config-controls.font-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .wtr-button-group {
+        margin-left: 0;
+        justify-content: center;
+        grid-auto-flow: row;
+    }
+    
+    .wtr-button-hide-controls {
+        grid-template-columns: 1fr;
+        gap: var(--panel-spacing-sm);
+    }
+}
+
+@container wtr-panel (max-width: 360px) {
+    #wtr-config-panel {
+        width: 98%;
+        margin: var(--panel-spacing-md);
+        padding: var(--panel-spacing-md);
+    }
+    
+    .wtr-config-section {
+        padding: var(--panel-spacing-md);
+    }
+    
+    .wtr-config-button {
+        min-width: 40px;
+    }
+}
+
+/* Grid Layout Fallbacks */
+@supports not (display: grid) {
+    .wtr-config-controls {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .wtr-button-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .wtr-button-hide-controls {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/* Container Queries Fallback */
+@supports not (container-type: inline-size) {
+    #wtr-config-container {
+        /* Fallback - styles remain as above for viewport-based responsiveness */
+    }
+    
+    /* Legacy media queries as fallback */
+    @media (max-width: 480px) {
+        #wtr-config-panel {
+            width: 95%;
+            padding: var(--panel-spacing-lg);
+        }
+        
+        .wtr-config-controls {
+            flex-direction: column;
+            gap: var(--panel-spacing-xs);
+        }
+    }
+}
+
+/* Backdrop Filter Fallback */
+@supports not (backdrop-filter: blur(1px)) {
+    #wtr-config-overlay {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Touch-specific enhancements */
+@media (hover: none) and (pointer: coarse) {
+    .wtr-config-button {
+        min-height: 48px;
+        padding: var(--panel-spacing-md) var(--panel-spacing-lg);
+        font-size: var(--panel-font-size-md);
+    }
+    
+    .wtr-config-controls input[type="number"],
+    .wtr-config-controls select {
+        min-height: 48px;
+        font-size: var(--panel-font-size-md);
+    }
+}
