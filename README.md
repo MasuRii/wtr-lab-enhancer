@@ -17,7 +17,7 @@ A powerful userscript that enhances your WTR-Lab reading experience with customi
 
 👉 **[Install from GreasyFork](https://greasyfork.org/en/scripts/552944-wtr-lab-reader-ui-enhancer)** - Ready!
 
-_GreasyFork provides automatic updates and easy management through userscript managers like Tampermonkey._
+_GreasyFork provides automatic updates and easy management through userscript managers (Tampermonkey, Violentmonkey, etc.)._
 
 ### Option 2: Build from Source
 
@@ -38,7 +38,7 @@ _GreasyFork provides automatic updates and easy management through userscript ma
    npm run build
    ```
 5. **Install the generated file:** The built script will be available at `dist/wtr-lab-enhancer.user.js`
-   - Open Tampermonkey dashboard
+   - Open your userscript manager dashboard
    - Click "Create a new script"
    - Replace the default content with the contents of `dist/wtr-lab-enhancer.user.js`
    - Save the script
@@ -152,7 +152,7 @@ This script is fully compliant with GreasyFork policies:
 
 ## 🔐 **Permissions & APIs**
 
-The script uses the following Tampermonkey APIs:
+The script uses the following userscript manager APIs:
 
 - `GM_addStyle` - Inject custom CSS styles
 - `GM_getValue` / `GM_setValue` - Persist user settings
