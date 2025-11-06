@@ -27,13 +27,25 @@ export const createConfigPanel = () => {
   const layoutSection = document.createElement("div");
   layoutSection.className = "wtr-config-section";
   layoutSection.innerHTML = `<label class="wtr-section-title">Layout & Sizing</label>
-            <div class="wtr-control-group">
-                <label for="wtr-reader-width-input">${configs.reader.label} (px)</label>
-                <div class="wtr-config-controls"><button id="wtr-reader-decrease-btn" class="wtr-config-button control">-</button><input type="number" id="wtr-reader-width-input" min="${MIN_WIDTH}" step="10"><button id="wtr-reader-increase-btn" class="wtr-config-button control">+</button><button id="wtr-reader-reset-btn" class="wtr-config-button reset">Reset</button></div>
-            </div>
-            <div class="wtr-control-group">
-                <label for="wtr-nav-width-input">${configs.nav.label} (px)</label>
-                <div class="wtr-config-controls"><button id="wtr-nav-decrease-btn" class="wtr-config-button control">-</button><input type="number" id="wtr-nav-width-input" min="${MIN_WIDTH}" step="10"><button id="wtr-nav-increase-btn" class="wtr-config-button control">+</button><button id="wtr-nav-reset-btn" class="wtr-config-button reset">Reset</button></div>
+            <div class="wtr-width-controls-group">
+                <div class="wtr-width-control-item">
+                    <label for="wtr-reader-width-input" class="wtr-width-label">${configs.reader.label} (px)</label>
+                    <div class="wtr-config-controls width-controls">
+                        <button id="wtr-reader-decrease-btn" class="wtr-config-button control">-</button>
+                        <input type="number" id="wtr-reader-width-input" min="${MIN_WIDTH}" step="10" class="wtr-width-input">
+                        <button id="wtr-reader-increase-btn" class="wtr-config-button control">+</button>
+                        <button id="wtr-reader-reset-btn" class="wtr-config-button reset">Reset</button>
+                    </div>
+                </div>
+                <div class="wtr-width-control-item">
+                    <label for="wtr-nav-width-input" class="wtr-width-label">${configs.nav.label} (px)</label>
+                    <div class="wtr-config-controls width-controls">
+                        <button id="wtr-nav-decrease-btn" class="wtr-config-button control">-</button>
+                        <input type="number" id="wtr-nav-width-input" min="${MIN_WIDTH}" step="10" class="wtr-width-input">
+                        <button id="wtr-nav-increase-btn" class="wtr-config-button control">+</button>
+                        <button id="wtr-nav-reset-btn" class="wtr-config-button reset">Reset</button>
+                    </div>
+                </div>
             </div>`;
   sectionsContainer.appendChild(layoutSection);
 

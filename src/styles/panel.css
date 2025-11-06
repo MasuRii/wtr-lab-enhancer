@@ -328,6 +328,45 @@
     stroke: none;
 }
 
+/* Width Controls Grouping - Responsive Layout */
+#wtr-config-panel .wtr-width-controls-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--panel-spacing-lg);
+    width: 100%;
+}
+
+#wtr-config-panel .wtr-width-control-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--panel-spacing-sm);
+    width: 100%;
+}
+
+#wtr-config-panel .wtr-width-label {
+    font-weight: var(--panel-font-weight-medium);
+    color: var(--panel-text-primary);
+    text-align: left;
+    margin-bottom: var(--panel-spacing-xs);
+}
+
+#wtr-config-panel .wtr-config-controls.width-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--panel-spacing-sm);
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+#wtr-config-panel .wtr-width-input {
+    flex: 1;
+    min-width: 80px;
+    max-width: 120px;
+    text-align: center;
+    /* Maintain consistent sizing across all screen sizes */
+    width: clamp(80px, 25%, 120px);
+}
+
 /* Motion Preference Handling - WCAG 2.2/2.3 Compliance */
 @media (prefers-reduced-motion: reduce) {
     #wtr-config-overlay,
@@ -379,6 +418,26 @@
         grid-template-columns: 1fr;
         gap: var(--panel-spacing-sm);
     }
+    
+    /* Width controls maintain grouping but stack on small screens */
+    .wtr-width-controls-group {
+        gap: var(--panel-spacing-md);
+    }
+    
+    .wtr-width-control-item {
+        width: 100%;
+    }
+    
+    .wtr-config-controls.width-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .wtr-width-input {
+        min-width: 70px;
+        max-width: 100px;
+        flex: 1;
+    }
 }
 
 @container wtr-panel (max-width: 360px) {
@@ -394,6 +453,26 @@
     
     .wtr-config-button {
         min-width: 40px;
+    }
+    
+    /* Extra small screens - ensure width controls stay in single column */
+    .wtr-width-controls-group {
+        gap: var(--panel-spacing-sm);
+    }
+    
+    .wtr-width-control-item {
+        width: 100%;
+    }
+    
+    .wtr-config-controls.width-controls {
+        flex-wrap: wrap;
+        gap: var(--panel-spacing-xs);
+    }
+    
+    .wtr-width-input {
+        min-width: 60px;
+        max-width: 80px;
+        flex: 1;
     }
 }
 
@@ -413,6 +492,27 @@
         display: flex;
         flex-wrap: wrap;
     }
+    
+    /* Width controls fallback - ensure they stay in single column */
+    .wtr-width-controls-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--panel-spacing-md);
+    }
+    
+    .wtr-width-control-item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--panel-spacing-sm);
+        width: 100%;
+    }
+    
+    .wtr-config-controls.width-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--panel-spacing-sm);
+        width: 100%;
+    }
 }
 
 /* Container Queries Fallback */
@@ -431,6 +531,44 @@
         .wtr-config-controls {
             flex-direction: column;
             gap: var(--panel-spacing-xs);
+        }
+        
+        /* Width controls fallback for legacy browsers */
+        .wtr-width-controls-group {
+            gap: var(--panel-spacing-md);
+        }
+        
+        .wtr-width-control-item {
+            width: 100%;
+        }
+        
+        .wtr-config-controls.width-controls {
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .wtr-width-input {
+            min-width: 70px;
+            max-width: 100px;
+            flex: 1;
+        }
+    }
+    
+    /* Extra small screens fallback */
+    @media (max-width: 360px) {
+        .wtr-width-controls-group {
+            gap: var(--panel-spacing-sm);
+        }
+        
+        .wtr-config-controls.width-controls {
+            flex-wrap: wrap;
+            gap: var(--panel-spacing-xs);
+        }
+        
+        .wtr-width-input {
+            min-width: 60px;
+            max-width: 80px;
+            flex: 1;
         }
     }
 }
