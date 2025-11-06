@@ -361,10 +361,9 @@
 #wtr-config-panel .wtr-width-input {
     flex: 1;
     min-width: 80px;
-    max-width: 120px;
     text-align: center;
-    /* Maintain consistent sizing across all screen sizes */
-    width: clamp(80px, 25%, 120px);
+    /* Grow to fill available space */
+    max-width: none;
 }
 
 /* Motion Preference Handling - WCAG 2.2/2.3 Compliance */
@@ -430,12 +429,10 @@
     
     .wtr-config-controls.width-controls {
         width: 100%;
-        justify-content: space-between;
     }
     
     .wtr-width-input {
         min-width: 70px;
-        max-width: 100px;
         flex: 1;
     }
 }
@@ -471,7 +468,6 @@
     
     .wtr-width-input {
         min-width: 60px;
-        max-width: 80px;
         flex: 1;
     }
 }
@@ -544,12 +540,10 @@
         
         .wtr-config-controls.width-controls {
             width: 100%;
-            justify-content: space-between;
         }
         
         .wtr-width-input {
             min-width: 70px;
-            max-width: 100px;
             flex: 1;
         }
     }
@@ -567,7 +561,6 @@
         
         .wtr-width-input {
             min-width: 60px;
-            max-width: 80px;
             flex: 1;
         }
     }
