@@ -37,6 +37,10 @@ module.exports = {
         match: "https://wtr-lab.com/en/novel/*/*/chapter-*",
         connect: ["gwfh.mranftl.com", "fonts.googleapis.com"],
         icon: "https://www.google.com/s2/favicons?sz=64&domain=wtr-lab.com",
+        // GreasyFork compliance headers
+        homepageURL: "https://github.com/MasuRii/wtr-lab-enhancer",
+        supportURL: "https://github.com/MasuRii/wtr-lab-enhancer/issues",
+        updateURL: "https://raw.githubusercontent.com/MasuRii/wtr-lab-enhancer/main/dist/wtr-lab-enhancer.user.js",
         grant: [
           "GM_addStyle",
           "GM_getValue",
